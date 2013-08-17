@@ -10,6 +10,7 @@ int main(void){
 		changeBestSlot(arr);
 	}
 	outputBoard(arr);
+	std::cout << std::endl << numQueens(arr) << " Queens on Board.";
 	
 	
 	return 0;
