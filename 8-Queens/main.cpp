@@ -3,13 +3,14 @@
 int main(void){
 	
 	char arr[8][8];
-	int slots=0;
+	
 	initializeBoard(arr);
-	placeQueen(arr, 7, 0);
-	slots=slotsConsumed(arr, 0, 1);
-	std::cout << slots << std::endl;
+	placeQueen(arr, 0, 0);
+	for (int i=1; i<7; i++){
+		changeBestSlot(arr);
+	}
 	outputBoard(arr);
-
+	
 	
 	return 0;
 }

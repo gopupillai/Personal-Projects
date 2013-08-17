@@ -18,9 +18,13 @@ void placeQueen(char (&arr)[8][8], int row, int col);
 // Places queen at location [row][col]
 // Sets all corresponding squares of movement of placed queen as true
 
-int slotsConsumed(char (&arr)[8][8], int row, int col);
+int slotsConsumed(char arr[8][8], int row, int col);
 // Returns the number of slots that will get conflicted if a queen is placed at this specific slot
 
+int numQueens(char arr[8][8]);
+// Returns number of queens inserted onto board
 
+void changeBestSlot(char (&arr)[8][8]);
+// Inserts queen at best possible slot
 
 #endif
