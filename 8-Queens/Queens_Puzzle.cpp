@@ -57,4 +57,49 @@ void placeQueen(char (&arr)[8][8], int row, int col){
 	}
 }
 
+int slotsConsumed(char (&arr)[8][8], int row, int col){
+	int slotsConsumed=1;
+	for (int i=0; i<8; i++){
+		if (arr[row][i]==' ' && i!=col){
+			slotsConsumed++;
+		}
+	}
+	for (int i=0; i<8; i++){
+		if (arr[i][col]==' ' && i!=row){
+			slotsConsumed++;
+		}
+	}
+	for (int i=row, j=col; i<8 && j<8; i++, j++){
+		if (arr[i][j]==' ' && i!=row){
+			slotsConsumed++;
+		}
+	}
+	for (int i=row, j=col; i>=0 && j>=0; i--, j--){
+		if (arr[i][j]==' ' && i!=row){
+			slotsConsumed++;
+		}
+	}
+	for (int i=row, j=col; i<8 && j>=0; i++, j--){
+		if (arr[i][j]==' ' && i!=row){
+			slotsConsumed++;
+		}
+	}
+	for (int i=row, j=col; i>=0 && j<8; i--, j++){
+		if (arr[i][j]==' ' && i!=row){
+			slotsConsumed++;
+		}
+	}
+	return slotsConsumed;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
