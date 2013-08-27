@@ -83,3 +83,29 @@ int specialPythagoreanTriplet(void){
 	std::cout << "a: " << a << " b: " << b << " c: " << c;
 	return (a*b*c);
 }
+
+unsigned long long collatzChain(unsigned long long start){
+	unsigned long long count=1;
+	while (start!=1){
+		if (start%2==0){
+			start = start/2;
+		} else {
+			start = 3*start+1;
+		}
+		count++;
+	}
+	return count;
+}
+
+unsigned long long longestCollatzChain(unsigned long long limit){
+	unsigned long long num=2, current, count=0;
+	while (num < limit){
+		if (count < collatzChain(num)){
+			count = collatzChain(num);
+			current = num;
+			std::cout << current << "***";
+		}
+		num++;
+	}
+	return current;
+}

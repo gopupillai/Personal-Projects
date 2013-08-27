@@ -31,4 +31,10 @@ int specialPythagoreanTriplet(void);
 // Finds a,b,c such that a + b + c = 1000 and also a Pythagorean Triplet
 // Returns the product abc
 
+unsigned long long collatzChain(unsigned long long start);
+// Returns number of elements within chain starting at start number
+
+unsigned long long longestCollatzChain(unsigned long long limit);
+// Returns the starting number under the limit that produces the largest Collatz Chain
+
 #endif
