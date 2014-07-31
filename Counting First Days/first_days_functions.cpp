@@ -1,4 +1,4 @@
-#include "sundays.h"
+#include "first_days.h"
 
 int daysInMonth(int month, int year) {
 	if ((month == 3) || (month == 5) || (month == 8) || (month == 10)) {
@@ -33,7 +33,7 @@ int numberOfFirstDays(int startYear, int endYear, int day) {
 
 	while (year <= limit) {
 		currentDay = (currentDay + daysInMonth(month, year)) % 7;
-		if (currentDay == 6) {
+		if (currentDay == day) {
 			numberOfFirsts++;
 		}
 		month++;

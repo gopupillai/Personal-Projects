@@ -1,9 +1,10 @@
-#ifndef SUNDAYS_H_
-#define SUNDAYS_H_
+#ifndef FIRST_DAYS_H_
+#define FIRST_DAYS_H_
 
 #include <iostream>
 #include <string>
-#include "sundays_functions.cpp"
+#include <cmath>
+#include "first_days_functions.cpp"
 
 
 int daysInMonth(int month, int year);
