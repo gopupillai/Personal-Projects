@@ -100,6 +100,7 @@ std::vector<potentialValue> sudoku_grid::returnPossibleValues(int row, int col) 
 
 void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 	// Below checks preset value in cell and either proceeds forward or backTracks if in backTracking mode
+	// Print function used for testing
 	this->print();
 	if (grid[row][col].preset == true) {
 		if (backTrack == true) {
@@ -123,19 +124,27 @@ void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 	}
 	if (backTrack == false) {
 		grid[row][col].possibleValues = returnPossibleValues(row, col);
+		std::cout << "Potential Values:\n";
+			for (std::vector<potentialValue>::iterator it = grid[row][col].possibleValues.begin(); it != grid[row][col].possibleValues.end(); ++it) {
+				std::cout << (*it).val << " ";
+			}
+			std::cout << '\n';
 		if (grid[row][col].possibleValues.empty() == true) {
 			// Need to start backTrack
+			grid[row][col].currentValue = 0;
 			if (col == 0) {
 				if (row == 0) {
 					std::cout << "No Solution2\n";
 					return;
 				}
+				grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
 				return solve_helper(row-1, 8, true);
 			}
+			grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
 			return solve_helper(row, col-1, true);
 		}
 		grid[row][col].currentValue = grid[row][col].possibleValues[0].val;
-		grid[row][col].possibleValues[0].check = true;
+		grid[row][col].possibleValues[0].check = true;		
 		if (col == 8) {
 			if (row == 8) {
 				std::cout << "Complete\n";
@@ -143,6 +152,7 @@ void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 			}
 			return solve_helper(row+1, 0, false);
 		}
+		std::cout << "TEST: " << row << " " << col << '\n';
 		return solve_helper(row, col+1, false);
 	}
 	// At this point helper function is in backTrack mode
@@ -163,9 +173,11 @@ void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 			return;
 		}
 		grid[row][col].currentValue = 0;
+		grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
 		return solve_helper(row-1, 8, true);
 	}
 	grid[row][col].currentValue = 0;
+	grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
 	return solve_helper(row, col-1, true);
 }
 
