@@ -26,6 +26,7 @@ class sudoku_grid {
 };
 
 void sudoku_grid::print() {
+	std::cout << "\nGRID:\n";
 	for (int i=0; i<9; i++) {
 		for (int j=0; j<9; j++) {
 			std::cout << "|" << grid[i][j].currentValue;
@@ -99,6 +100,7 @@ std::vector<potentialValue> sudoku_grid::returnPossibleValues(int row, int col) 
 
 void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 	// Below checks preset value in cell and either proceeds forward or backTracks if in backTracking mode
+	this->print();
 	if (grid[row][col].preset == true) {
 		if (backTrack == true) {
 			if (col == 0) {
