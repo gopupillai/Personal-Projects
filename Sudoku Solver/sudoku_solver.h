@@ -1,8 +1,7 @@
 #ifndef SUDOKU_SOLVER_H_
 #define SUDOKU_SOLVER_H_
 
-#include "iostream"
-#include "vector"
+#include <iostream>
 
 
 #include "cell.h"
