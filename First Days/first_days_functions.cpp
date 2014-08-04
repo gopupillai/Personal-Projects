@@ -44,3 +44,27 @@ int numberOfFirstDays(int startYear, int endYear, int day) {
 	}
 	return numberOfFirsts;
 }
+
+void run() {
+	int start, end, day;
+	std::cout << "Enter the start year: ";
+	std::cin >> start;
+	while (start < 1900) {
+		std::cout << "Enter a start year after or on 1900: ";
+		std::cin >> start;
+	}
+	std::cout << "Enter the end year: ";
+	std::cin >> end;
+	while (end < start) {
+		std::cout << "Enter an end year that occurs after or on the start year: ";
+		std::cin >> end;
+	}
+	std::cout << "0: Monday. 1: Tuesday. 2: Wednesday. 3: Thursday. 4: Friday. 5: Saturday. 6: Sunday\n";
+	std::cout << "Enter the day you want to find: ";
+	std::cin >> day;
+	while ((day <0) || (day >6)) {
+		std::cout << "0: Monday. 1: Tuesday. 2: Wednesday. 3: Thursday. 4: Friday. 5: Saturday. 6: Sunday\n";
+		std::cout << "Enter the number for the day you want to find: ";
+	}
+	std::cout << numberOfFirstDays(start, end, day) << '\n';
+}

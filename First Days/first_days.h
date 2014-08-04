@@ -23,4 +23,7 @@ int numberOfFirstDays(int startYear, int endYear, int day);
 	Sunday 		6
 */
 
+void run();
+// Runs the program
+
 #endif
