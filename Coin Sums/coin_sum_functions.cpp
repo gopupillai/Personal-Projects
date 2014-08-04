@@ -54,7 +54,14 @@ int returnUpTo2Pound(int sum) {
 	return n;
 }
 
-void run(int sum) {
+void run() {
+	int sum;
+	std::cout << "Enter sum value in pence: ";
+	std::cin >> sum;
+	while (sum <= 0) {
+		std::cout << "Enter a value in pence greater than 0: ";
+		std::cin >> sum;
+	}
 	std::cout << "Number of ways to create " << sum << "p is: " << returnUpTo2Pound(sum) << '\n';
 	return;
 }

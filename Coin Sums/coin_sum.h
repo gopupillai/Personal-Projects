@@ -18,7 +18,7 @@ int returnUpTo1Pound(int sum);
 // Returns the number of ways to create sum out of coins up to 1 pound
 int returnUpTo2Pound(int sum);
 // Returns the number of ways to create sum out of coins up to 2 pound
-void run(int sum);
+void run();
 // Runs the program and outputs the number of ways to create sum out of all coins
 // Sum needs to be in pence
 

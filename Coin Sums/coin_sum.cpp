@@ -3,6 +3,6 @@
 
 int main() {
 
-	run(200);
+	run();
 	return 0;
 }
