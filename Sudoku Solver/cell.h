@@ -3,7 +3,6 @@
 
 
 struct cell {
-	std::vector<potentialValue> possibleValues;
 	int currentValue;
 	bool preset;
 	cell() {

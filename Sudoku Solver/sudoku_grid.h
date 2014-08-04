@@ -19,7 +19,7 @@ class sudoku_grid {
 		// Returns false if val is already on col
 		bool miniGridCheck(int row, int col, int val);
 		// Returns false if val is already in miniGrid
-		std::vector<potentialValue> returnPossibleValues(int row, int col);
+		int returnPossibleValue(int row, int col);
 		void solve_helper(int row, int col, bool backTrack);
 
 
@@ -33,6 +33,7 @@ void sudoku_grid::print() {
 		}
 		std::cout << "|\n";
 	}
+	std::cout << '\n';
 }
 
 void sudoku_grid::fillGrid() {
@@ -86,22 +87,18 @@ bool sudoku_grid::miniGridCheck(int row, int col, int val) {
 	return true;
 }
 
-std::vector<potentialValue> sudoku_grid::returnPossibleValues(int row, int col) {
-	std::vector<potentialValue> values;
+int sudoku_grid::returnPossibleValue(int row, int col) {
 	for (int i=1; i < 10; i++) {
-		if (rowCheck(row, i) && colCheck(col, i) && miniGridCheck(row, col, i)) {
-			potentialValue temp;
-			temp.val = i;
-			values.push_back(temp);
+		if (rowCheck(row, i) && colCheck(col, i) && miniGridCheck(row, col, i) && i>grid[row][col].currentValue) {
+			return i;
 		}
 	}
-	return values;
+	return 0;
 }
 
 void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 	// Below checks preset value in cell and either proceeds forward or backTracks if in backTracking mode
 	// Print function used for testing
-	this->print();
 	if (grid[row][col].preset == true) {
 		if (backTrack == true) {
 			if (col == 0) {
@@ -122,63 +119,25 @@ void sudoku_grid::solve_helper(int row, int col, bool backTrack) {
 		}
 		return solve_helper(row, col+1, false);
 	}
-	if (backTrack == false) {
-		grid[row][col].possibleValues = returnPossibleValues(row, col);
-		std::cout << "Potential Values:\n";
-			for (std::vector<potentialValue>::iterator it = grid[row][col].possibleValues.begin(); it != grid[row][col].possibleValues.end(); ++it) {
-				std::cout << (*it).val << " ";
-			}
-			std::cout << '\n';
-		if (grid[row][col].possibleValues.empty() == true) {
-			// Need to start backTrack
-			grid[row][col].currentValue = 0;
-			if (col == 0) {
-				if (row == 0) {
-					std::cout << "No Solution2\n";
-					return;
-				}
-				grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
-				return solve_helper(row-1, 8, true);
-			}
-			grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
-			return solve_helper(row, col-1, true);
-		}
-		grid[row][col].currentValue = grid[row][col].possibleValues[0].val;
-		grid[row][col].possibleValues[0].check = true;		
-		if (col == 8) {
-			if (row == 8) {
-				std::cout << "Complete\n";
+	grid[row][col].currentValue = returnPossibleValue(row, col);
+	if (grid[row][col].currentValue == 0) {
+		if (col == 0) {
+			if (row == 0) {
+				std::cout << "No Solution\n";
 				return;
 			}
-			return solve_helper(row+1, 0, false);
+			return solve_helper(row-1, 8, true);
 		}
-		std::cout << "TEST: " << row << " " << col << '\n';
-		return solve_helper(row, col+1, false);
+		return solve_helper(row, col-1, true);
 	}
-	// At this point helper function is in backTrack mode
-	for (std::vector<potentialValue>::iterator it = grid[row][col].possibleValues.begin(); it != grid[row][col].possibleValues.end(); ++it) {
-		if ((*it).check == false) {
-			grid[row][col].currentValue = (*it).val;
-			(*it).check = true;
-			if (col == 8) {
-				return solve_helper(row+1, 0, false);
-			}
-			return solve_helper(row, col+1, false);
-		}
-	}
-	// All possibleValues have been checked so need to backTrack to prior cell
-	if (col == 0) {
-		if (row == 0) {
-			std::cout << "No Solution3\n";
+	if (col == 8) {
+		if (row == 8) {
+			std::cout << "Complete\n";
 			return;
 		}
-		grid[row][col].currentValue = 0;
-		grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
-		return solve_helper(row-1, 8, true);
+		return solve_helper(row+1, 0, false);
 	}
-	grid[row][col].currentValue = 0;
-	grid[row][col].possibleValues.erase(grid[row][col].possibleValues.begin(), grid[row][col].possibleValues.end());
-	return solve_helper(row, col-1, true);
+	return solve_helper(row, col+1, false);
 }
 
 void sudoku_grid::solve() {

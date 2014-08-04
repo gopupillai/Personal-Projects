@@ -5,7 +5,6 @@
 #include "vector"
 
 
-#include "potential_value.h"
 #include "cell.h"
 #include "sudoku_grid.h"
 #include "sudoku_solver_functions.cpp"
