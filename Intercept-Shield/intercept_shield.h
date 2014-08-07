@@ -13,6 +13,7 @@
 void inputDetails(safe_zone &safe, rocket &incoming_rocket, std::vector<rocket> &patriots);
 // Inputs the details of safe zone & incoming rocket & patriot batteries
 // Later can incorporate to handle a combination of incoming rockets through use of a vector
+// Currently use cin for details then adjust to ifstream
 
 
 

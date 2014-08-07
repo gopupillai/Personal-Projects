@@ -47,7 +47,6 @@ coordinate rocket::entry_point(safe_zone safe) {
 	a_1 = 1 + (m*m);
 	b_1 = (-2*safe.location.x) + (2*c*m) - (2*m*safe.location.y);
 	c_1 = (safe.location.x*safe.location.x) + (c*c) - (2*c*safe.location.y) + (safe.location.y*safe.location.y) - (safe.radius*safe.radius);
-	c_1 = abs(c_1);
 	x_1 = (-b_1 + sqrt((b_1*b_1) - (4*a_1*c_1)))/(2*a_1);
 	x_2 = (-b_1 - sqrt((b_1*b_1) - (4*a_1*c_1)))/(2*a_1);
 	if (abs(coords.x - x_1) <= abs(coords.x - x_2)) {
