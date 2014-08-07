@@ -15,6 +15,10 @@ struct coordinate {
 		y = 0;
 	}
 
+	void print() {
+		std::cout << '(' << x << ", " << y << ')';
+	}
+
 };
 
 
