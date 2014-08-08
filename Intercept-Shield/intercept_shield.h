@@ -11,6 +11,13 @@
 #include "rocket.h"
 #include "intercept_shield_functions.cpp"
 
+/* Notes:
+	- Rocket details needs to be input using public functions
+	- Variables are all private -> Ensures functions do not adjust and maintain correct I/O
+	- Set safe zone details private?
+*/
+
+
 void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> &patriots);
 /*	Inputs the details of safe zone & incoming rocket & patriot batteries
 	Later can incorporate to handle a combination of incoming rockets through use of a vector
