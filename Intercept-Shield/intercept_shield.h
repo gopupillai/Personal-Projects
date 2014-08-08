@@ -15,6 +15,7 @@
 	- Rocket details needs to be input using public functions
 	- Variables are all private -> Ensures functions do not adjust and maintain correct I/O
 	- Set safe zone details private?
+	- Possible split of rocket class into separate classes: Patriot (intercepting missile) and Rocket (incoming)
 */
 
 

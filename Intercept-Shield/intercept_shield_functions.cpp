@@ -27,3 +27,4 @@ void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> 
 	std::cout << "------------------------------------------------------------\n";
 	return;
 }
+
