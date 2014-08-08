@@ -5,16 +5,24 @@ class rocket {
 
 	public:
 
+		rocket();
+		// Basic constructor
 		rocket(coordinate location, coordinate incoming_direction, double speed);
 		// Constructor for incoming rocket
 		rocket(coordinate location);
 		// Constructor for interception rocket
+		void adjustDetails(coordinate location, coordinate incoming_direction, double speed);
+		// Adjusts the details of rocket -> Used for incoming rocket
 		coordinate entry_point(safe_zone safe);
 		// Returns the point of entry of rocket into safe zone
 		void interception_direction(coordinate entry);
 		// Outputs the coordinates that interception rocket must be fired at
 		// Outputs message if not possible to intercept before entry to safe zone
 		// If not possible to intercept, outputs area of entry as warning
+		void printIncomingDetails();
+		// Outputs the details of incoming rocket
+		void printPatriotDetails();
+		// Outputs the details of patriot
 
 
 	private:
@@ -24,6 +32,15 @@ class rocket {
 		double velocity; // In meters per second
 		double time_to_entry;
 };
+
+rocket::rocket() {
+	coords.x = 0;
+	coords.y = 0;
+	direction.x = 0;
+	direction.y = 0;
+	velocity = 0;
+	time_to_entry = 0;
+}
 
 rocket::rocket(coordinate location, coordinate incoming_direction, double speed) {
 	coords = location;
@@ -36,6 +53,12 @@ rocket::rocket(coordinate location) {
 	coords = location;
 	velocity = 1710;
 	time_to_entry = 0;
+}
+
+void rocket::adjustDetails(coordinate location, coordinate incoming_direction, double speed) {
+	coords = location;
+	direction = incoming_direction;
+	velocity = speed;
 }
 
 coordinate rocket::entry_point(safe_zone safe) {
@@ -65,6 +88,14 @@ void rocket::interception_direction(coordinate entry){
 	time_to_entry = (sqrt((direction.x*direction.x) + (direction.y*direction.y)))/velocity;
 }
 
+void rocket::printIncomingDetails() {
+	std::cout << "Incoming Rocket\nLocation: (" << coords.x << ", " << coords.y << ")	Direction: (" << direction.x;
+	std::cout << ", " << direction.y << ")	Speed: " << velocity << "\n------------------------------------------------------------\n";
+}
+
+void rocket::printPatriotDetails() {
+	std::cout << "Location: (" << coords.x << ", " << coords.y << ")\n";
+}
 
 
 #endif

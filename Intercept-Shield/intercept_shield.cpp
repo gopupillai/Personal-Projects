@@ -3,12 +3,11 @@
 
 int main() {
 
-	coordinate safe_location(0,0), rocket_coord(5, 5), rocket_direction(4,5), entry;
-	safe_zone safe(safe_location, 1);
-	rocket incoming_rocket(rocket_coord, rocket_direction, 100);
-	entry = incoming_rocket.entry_point(safe);
-	entry.print();
-	std::cout << '\n';
+	safe_zone *safe = new safe_zone;
+	rocket *incoming_rocket = new rocket;
+	std::vector<rocket> patriots;
+	inputDetails(safe, incoming_rocket, patriots);
+	printDetails(safe, incoming_rocket, patriots);
 
 	return 0;
 }

@@ -11,6 +11,9 @@ struct safe_zone {
 	safe_zone() {
 		radius = 0;
 	}
+	void print() {
+		std::cout << "Safe Zone\nLocation: (" << location.x << ", " << location.y << ")	Radius: " << radius << "\n------------------------------------------------------------\n";
+	}
 };
 
 
