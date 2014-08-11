@@ -12,8 +12,7 @@ class rocket {
 		void adjustDetails(coordinate location, coordinate incoming_direction, double speed);
 		// Adjusts the details of rocket -> Used for incoming rocket
 		coordinate entry_point(safe_zone safe);
-		// Returns the point of entry of rocket into safe zone
-		
+		// Returns the point of entry of rocket into safe zone		
 		void printIncomingDetails();
 		// Outputs the details of incoming rocket
 		double return_time_to_entry();

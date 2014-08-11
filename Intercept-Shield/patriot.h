@@ -6,7 +6,7 @@ class patriot: protected rocket {
 	public:
 
 
-		patriot(coordinate location);
+		patriot(coordinate location, int ID);
 		// Constructor for interception rocket
 		void interception_time(coordinate entry);
 		// Sets the interception time for patriot
@@ -17,12 +17,16 @@ class patriot: protected rocket {
 		double launch_time(rocket incoming);
 		// Returns the seconds from start of algorithm till when patriot must be fired to intercept with rocket at entry point to safe zone
 
+	private:
+		int id;
+
 };
 
-patriot::patriot(coordinate location) {
+patriot::patriot(coordinate location, int ID) {
 	coords = location;
 	velocity = 1710;
 	time_to_entry = 0;
+	id = ID;
 }
 
 void patriot::interception_time(coordinate entry){
@@ -32,6 +36,7 @@ void patriot::interception_time(coordinate entry){
 }
 
 void patriot::printPatriotDetails() {
+	std::cout << "ID: " << id << "	";
 	std::cout << "Location: (" << coords.x << ", " << coords.y << ")\n";
 }
 

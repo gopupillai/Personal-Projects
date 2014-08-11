@@ -1,7 +1,7 @@
 #include "intercept_shield.h"
 
 void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot> &patriots){
-	int num_batteries;
+	int num_batteries, id;
 	coordinate location, direction;
 	double speed;
 	std::cin >> safe->location.x >> safe->location.y >> safe->radius;
@@ -9,8 +9,9 @@ void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot>
 	incoming_rocket->adjustDetails(location, direction, speed);
 	std::cin >> num_batteries;
 	for (int i=0; i < num_batteries; i++) {
+		std::cin >> id;
 		std::cin >> location.x >> location.y;
-		patriot temp(location);
+		patriot temp(location, id);
 		patriots.push_back(temp);
 	}
 	return;
