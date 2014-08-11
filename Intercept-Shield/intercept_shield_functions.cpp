@@ -1,6 +1,6 @@
 #include "intercept_shield.h"
 
-void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> &patriots){
+void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot> &patriots){
 	int num_batteries;
 	coordinate location, direction;
 	double speed;
@@ -10,18 +10,18 @@ void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> 
 	std::cin >> num_batteries;
 	for (int i=0; i < num_batteries; i++) {
 		std::cin >> location.x >> location.y;
-		rocket temp(location);
+		patriot temp(location);
 		patriots.push_back(temp);
 	}
 	return;
 }
 
-void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> patriots) {
+void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot> patriots) {
 	std::cout << "Intercept Shield Details\n------------------------------------------------------------\n";
 	safe->print();
 	incoming_rocket->printIncomingDetails();
 	std::cout << "Patriot Battery Locations\n";
-	for (std::vector<rocket>::iterator it = patriots.begin(); it != patriots.end(); ++it) {
+	for (std::vector<patriot>::iterator it = patriots.begin(); it != patriots.end(); ++it) {
 		(*it).printPatriotDetails();
 	}
 	std::cout << "------------------------------------------------------------\n";

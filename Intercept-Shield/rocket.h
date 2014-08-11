@@ -9,27 +9,19 @@ class rocket {
 		// Basic constructor
 		rocket(coordinate location, coordinate incoming_direction, double speed);
 		// Constructor for incoming rocket
-		rocket(coordinate location);
-		// Constructor for interception rocket
 		void adjustDetails(coordinate location, coordinate incoming_direction, double speed);
 		// Adjusts the details of rocket -> Used for incoming rocket
 		coordinate entry_point(safe_zone safe);
 		// Returns the point of entry of rocket into safe zone
-		void interception_time(coordinate entry);
-		// Sets the interception time for patriot
+		
 		void printIncomingDetails();
 		// Outputs the details of incoming rocket
-		void printPatriotDetails();
-		// Outputs the details of patriot
 		double return_time_to_entry();
 		// Returns the time to entry
-		bool possible_interception(const rocket incoming);
-		// Returnts true if the patriot time to entry point is less than the incoming rocket
-		double launch_time(const rocket incoming);
-		// Returns the seconds from start of algorithm till when patriot must be fired to intercept with rocket at entry point to safe zone
+		
 
 
-	private:
+	protected:
 
 		coordinate coords;
 		coordinate direction;
@@ -53,11 +45,7 @@ rocket::rocket(coordinate location, coordinate incoming_direction, double speed)
 	time_to_entry = 0;
 }
 
-rocket::rocket(coordinate location) {
-	coords = location;
-	velocity = 1710;
-	time_to_entry = 0;
-}
+
 
 void rocket::adjustDetails(coordinate location, coordinate incoming_direction, double speed) {
 	coords = location;
@@ -86,35 +74,16 @@ coordinate rocket::entry_point(safe_zone safe) {
 	return entry;
 }
 
-void rocket::interception_time(coordinate entry){
-	direction.x = coords.x - entry.x;
-	direction.y = coords.y - entry.y;
-	time_to_entry = (sqrt((direction.x*direction.x) + (direction.y*direction.y)))/velocity;
-}
-
 void rocket::printIncomingDetails() {
 	std::cout << "Incoming Rocket\nLocation: (" << coords.x << ", " << coords.y << ")	Direction: (" << direction.x;
 	std::cout << ", " << direction.y << ")	Speed: " << velocity << "\n------------------------------------------------------------\n";
-}
-
-void rocket::printPatriotDetails() {
-	std::cout << "Location: (" << coords.x << ", " << coords.y << ")\n";
 }
 
 double rocket::return_time_to_entry() {
 	return time_to_entry;
 }
 
-bool rocket::possible_interception(const rocket incoming) {
-	if (time_to_entry <= incoming.return_time_to_entry()) {
-		return true;
-	}
-	return false;
-}
 
-double rocket::launch_time(const rocket incoming) {
-	return (incoming.return_time_to_entry() - time_to_entry);
-}
 
 
 #endif

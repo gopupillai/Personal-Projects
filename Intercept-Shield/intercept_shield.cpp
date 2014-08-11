@@ -5,7 +5,7 @@ int main() {
 
 	safe_zone *safe = new safe_zone;
 	rocket *incoming_rocket = new rocket;
-	std::vector<rocket> patriots;
+	std::vector<patriot> patriots;
 	inputDetails(safe, incoming_rocket, patriots);
 	printDetails(safe, incoming_rocket, patriots);
 

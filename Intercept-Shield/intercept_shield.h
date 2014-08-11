@@ -9,6 +9,7 @@
 #include "coordinate.h"
 #include "safe_zone.h"
 #include "rocket.h"
+#include "patriot.h"
 #include "intercept_shield_functions.cpp"
 
 /* Notes:
@@ -35,8 +36,10 @@ void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> 
 
 
 
-void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> patriots);
+void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot> patriots);
 // Outputs the details of the safe zone, incoming rocket and patriot batteries
+
+
 
 
 
