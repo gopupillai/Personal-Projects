@@ -36,12 +36,13 @@ patriot::patriot(coordinate location, int ID) {
 void patriot::interception_time(coordinate entry){
 	this->direction.x = entry.x - this->coords.x;
 	this->direction.y = entry.y - this->coords.y;
-	time_to_entry = (sqrt((direction.x*direction.x) + (direction.y*direction.y)))/velocity;
+	this->direction.z = entry.z - this->coords.z;
+	time_to_entry = sqrt((direction.x*direction.x) + (direction.y*direction.y) + (direction.z*direction.z))/velocity;
 }
 
 void patriot::printPatriotDetails() {
 	std::cout << "ID: " << id << "	";
-	std::cout << "Location: (" << coords.x << ", " << coords.y << ")\n";
+	std::cout << "Location: (" << coords.x << ", " << coords.y << ", " << coords.z << ")\n";
 }
 
 bool patriot::possible_interception(rocket incoming) {
@@ -61,7 +62,7 @@ int patriot::returnID() {
 
 void patriot::printLaunchDetails(rocket incoming) {
 	this->printPatriotDetails();
-	std::cout << "Launch Direction: (" << this->direction.x << ", " << this->direction.y << ")	Time Till Launch: ";
+	std::cout << "Launch Direction: (" << this->direction.x << ", " << this->direction.y << ", " << this->direction.z << ")		Time Till Launch: ";
 	std::cout << this->launch_time(incoming) << "s 	Speed: " << velocity << "m/s\n";
 }
 

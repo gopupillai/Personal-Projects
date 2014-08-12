@@ -3,20 +3,22 @@
 
 struct coordinate {
 
-	double x, y;
+	double x, y, z;
 
-	coordinate(double a, double b) {
+	coordinate(double a, double b, double c) {
 		x = a;
 		y = b;
+		z = c;
 	}
 
 	coordinate() {
 		x = 0;
 		y = 0;
+		z = 0;
 	}
 
 	void print() {
-		std::cout << '(' << x << ", " << y << ')';
+		std::cout << '(' << x << ", " << y << ", " << z << ')';
 	}
 
 };
