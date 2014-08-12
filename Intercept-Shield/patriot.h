@@ -1,7 +1,7 @@
 #ifndef PATRIOT_H_
 #define PATRIOT_H_
 
-class patriot: protected rocket {
+class patriot: public rocket {
 
 	public:
 
@@ -16,6 +16,10 @@ class patriot: protected rocket {
 		// Returnts true if the patriot time to entry point is less than the incoming rocket
 		double launch_time(rocket incoming);
 		// Returns the seconds from start of algorithm till when patriot must be fired to intercept with rocket at entry point to safe zone
+		int returnID();
+		// Returns the ID of the patriot battery
+		void printLaunchDetails(rocket incoming);
+		// Prints the direction, speed and time of launch of patriot
 
 	private:
 		int id;
@@ -30,8 +34,8 @@ patriot::patriot(coordinate location, int ID) {
 }
 
 void patriot::interception_time(coordinate entry){
-	direction.x = coords.x - entry.x;
-	direction.y = coords.y - entry.y;
+	this->direction.x = entry.x - this->coords.x;
+	this->direction.y = entry.y - this->coords.y;
 	time_to_entry = (sqrt((direction.x*direction.x) + (direction.y*direction.y)))/velocity;
 }
 
@@ -49,6 +53,16 @@ bool patriot::possible_interception(rocket incoming) {
 
 double patriot::launch_time(rocket incoming) {
 	return (incoming.return_time_to_entry() - time_to_entry);
+}
+
+int patriot::returnID() {
+	return id;
+}
+
+void patriot::printLaunchDetails(rocket incoming) {
+	this->printPatriotDetails();
+	std::cout << "Launch Direction: (" << this->direction.x << ", " << this->direction.y << ")	Time Till Launch: ";
+	std::cout << this->launch_time(incoming) << "s 	Speed: " << velocity << "m/s\n";
 }
 
 #endif

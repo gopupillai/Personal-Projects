@@ -17,6 +17,8 @@ class rocket {
 		// Outputs the details of incoming rocket
 		double return_time_to_entry();
 		// Returns the time to entry
+		void adjustDirection(int x, int y);
+		// Adjusts the direction of rocket
 		
 
 
@@ -44,6 +46,11 @@ rocket::rocket(coordinate location, coordinate incoming_direction, double speed)
 	time_to_entry = 0;
 }
 
+void rocket::adjustDirection(int x, int y) {
+	direction.x = x;
+	direction.y = y;
+}
+
 
 
 void rocket::adjustDetails(coordinate location, coordinate incoming_direction, double speed) {
@@ -56,7 +63,6 @@ coordinate rocket::entry_point(safe_zone safe) {
 	coordinate entry;
 	double c, m, a_1, b_1, c_1, x_1, x_2;
 	m = direction.x / direction.y;
-	std::cout << "m: " << m << '\n';
 	c = coords.y - (m * coords.x);
 	a_1 = 1 + (m*m);
 	b_1 = (-2*safe.location.x) + (2*c*m) - (2*m*safe.location.y);
