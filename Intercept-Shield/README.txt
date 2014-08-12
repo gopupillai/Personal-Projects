@@ -7,3 +7,8 @@ Practicing inheritance through using patriot as an inherited class of rocket
 Note:
 	- Input of patriot IDs must start at '0' and proceed in consecutively increasing IDs
 	- Makes it easier to input as an ID for vector
+
+Upgrades:
+	1) UNIX Time for input / output -> Provide precise time for launch
+	2) Incorporate vector for rockets -> Implement real time input for rockets
+	3) Set up downtime for patriot using UNIX time
