@@ -12,3 +12,7 @@ Upgrades:
 	1) UNIX Time for input / output -> Provide precise time for launch
 	2) Incorporate vector for rockets -> Implement real time input for rockets
 	3) Set up downtime for patriot using UNIX time
+	4) Include linking between a patriot missile and rocket -> Tracking via coordinates
+		- Include possibility for erratic movement of rocket
+	5) Include patriot batteries within safe zone area and not outside
+		- Will ensure program does not permit any batteries to be attacked by a rocket
