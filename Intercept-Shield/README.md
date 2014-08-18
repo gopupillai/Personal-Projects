@@ -25,8 +25,8 @@ Note: 	The number of patriot batteries must correspond exactly to the number of 
 
 ##Upgrades
 
-1. UNIX Time for input / output.
-	*Provides precise time for launch.
+1. UNIX Time for input / output
+  *Provides precise time for launch.
 2. Incorporate vector for rockets.
   * Implements real time input for incoming rocket barrages.
 3. Set up downtime for patriot using UNIX time.
