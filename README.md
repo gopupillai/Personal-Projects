@@ -8,6 +8,7 @@ The following is a list of the programs and a brief description, the READMEs in 
 1. 8-Queens
   * Attempts to solve the 8-Queens problem in chess.
   * Tries to find a solution of placing 8 Queens in a chessboard without any queens being able to attack the others.
+  * UPDATE: Only solves for 7 queens. Need to implement B&B and backtracking algorithms to solve for 8-Queens.
 2. Coin Sums
   * Provides the number of different ways of forming a total in pounds using British coins.
   * Possible British coins are: 1p, 2p, 5p, 10p, 20p, 50p, 1 pound, 2 pounds.
