@@ -37,3 +37,6 @@ Note: 	The number of patriot batteries must correspond exactly to the number of 
   * Will ensure program does not permit any batteries to be attacked by a rocket.
 6. If unable to intercept, provide coordinates at which the rocket hits z=0, i.e. ground.
   * In addition to entry into safe zone coordinates.
+7. Setup filestream for I/O.
+  * Need to implement due to any new incoming rockets.
+  * Will ensure better real life simulation.
