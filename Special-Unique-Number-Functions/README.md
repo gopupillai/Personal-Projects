@@ -15,16 +15,22 @@ Brief overview of functions is given below.
 2. bool isTriangleNumber(int num)
   * Returns true if num is a triangle number
   * A Triangle number is a number that counts the objects that form an equilateral triangle.
-  * Eg. 1:		.
+  * Eg. 1:		
 
-  * Eg. 3:		.
+  				.
+
+  * Eg. 3:		
+
+  				.
 
   			   . .
 
-  * Eg. 6:		.
+  * Eg. 6:
+
+  				.
 
   			   . .
-  			   
+
   			  . . .
 3. int highlyDivisible(int factors)
   * Provides the first triangle number with number of divisors greater than the factors parameter
