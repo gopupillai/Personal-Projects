@@ -32,6 +32,7 @@ Brief overview of functions is given below.
   			   . .
 
   			  . . .
+  			  
 3. int highlyDivisible(int factors)
   * Provides the first triangle number with number of divisors greater than the factors parameter
   * Returns that triangle number
