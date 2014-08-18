@@ -55,4 +55,5 @@ Brief overview of functions is given below.
 A Collatz Chain is a sequence formed from a starting number using the following function:
 
 f(n) = n / 2 iff n = 0 (mod 2)
+
 f(n) = 3n + 1 iff n = 1 (mod 2)
