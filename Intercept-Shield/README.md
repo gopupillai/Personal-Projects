@@ -25,15 +25,15 @@ Note: 	The number of patriot batteries must correspond exactly to the number of 
 
 ##Upgrades
 
-1. UNIX Time for input / output.
-...* Provides precise time for launch.
-2. Incorporate vector for rockets.
-..* Implements real time input for incoming rocket barrages.
-3. Set up downtime for patriot using UNIX time.
-..* Ensures better real life simulation.
-4. Include linking between a patriot missile and rocket.
-..* Ensures tracking via coordinates and includes possibility for erratic movement of rocket.
-5. Include patriot batteries within safe zone area and not outside.
-..* Will ensure program does not permit any batteries to be attacked by a rocket.
-6. If unable to intercept, provide coordinates at which the rocket hits z=0, i.e. ground.
-..* In addition to entry into safe zone coordinates.
+1. UNIX Time for input / output
+..* Provides precise time for launch
+2. Incorporate vector for rockets
+..* Implements real time input for incoming rocket barrages
+3. Set up downtime for patriot using UNIX time
+..* Ensures better real life simulation
+4. Include linking between a patriot missile and rocket
+..* Ensures tracking via coordinates and includes possibility for erratic movement of rocket
+5. Include patriot batteries within safe zone area and not outside
+..* Will ensure program does not permit any batteries to be attacked by a rocket
+6. If unable to intercept, provide coordinates at which the rocket hits z=0, i.e. ground
+..* In addition to entry into safe zone coordinates
