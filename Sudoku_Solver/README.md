@@ -17,7 +17,7 @@ After compiling, run:
 
 ./sudoku_solver
 
-Fill in the preset values using indexing for rows and columns:
+Follow the prompts and fill in the preset values using indexing for rows and columns:
 
 	Column:			 0   1   2   3   4   5   6   7   8
 				  =======================================
