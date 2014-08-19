@@ -8,6 +8,8 @@ int main(void){
 	test.setQueen(0, 0);
 	test.printBoard();
 	*/
+	test.completeGrid();
+	test.printBoard();
 	
 	
 	

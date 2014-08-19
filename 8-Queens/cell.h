@@ -4,10 +4,12 @@
 
 struct cell {
 	bool queenPlaced;
+	bool currentQueen;
 	bool conflict;
 	cell() {
 		queenPlaced = false;
 		conflict = false;
+		currentQueen = false;
 	}
 };
 
