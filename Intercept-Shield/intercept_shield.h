@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <vector>
+#include <ctime>
 
 #include "coordinate.h"
 #include "safe_zone.h"
@@ -38,6 +39,10 @@ void inputDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<rocket> 
 
 void printDetails(safe_zone *safe, rocket *incoming_rocket, std::vector<patriot> patriots);
 // Outputs the details of the safe zone, incoming rocket and patriot batteries
+
+void run();
+// Runs the program
+// Only function that needs to be used in main cpp file
 
 
 
