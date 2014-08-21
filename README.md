@@ -33,3 +33,7 @@ The following is a list of the programs and a brief description, the READMEs in 
 9. Summation-Functions
   * Various number functions that focus on summations
   * Covers some project-euler problems.
+10. HTML and JavaScript
+  * Contains the following HTML and JavaScript projects:
+    * sudoku_solver
+      * Web application implementation of sudoku_solver.cpp
