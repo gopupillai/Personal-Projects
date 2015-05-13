@@ -40,3 +40,7 @@ Note: 	The number of patriot batteries must correspond exactly to the number of 
 7. Setup filestream for I/O.
   * Need to implement due to any new incoming rockets.
   * Will ensure better real life simulation.
+8. Use two separate input files
+  * One input for safe zone and patriot batteries which are constant
+  * One input for rockets being fired
+9. Use a hash map for patriots instead of conesecutive IDs

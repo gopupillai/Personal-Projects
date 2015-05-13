@@ -10,6 +10,7 @@ int main() {
 	rawtime = rawtime + 1000;
   	timeinfo = localtime ( &rawtime );
   	printf ( "The current date/time is: %s", asctime (timeinfo) );
+  	run();
 
 	return 0;
 }
