@@ -1,0 +1,35 @@
+Java Notes
+
+Compiling: javac HelloWorld.java
+
+Javac is the compiler program.
+
+Compiler creates HelloWorld.class -> This is the executable file
+
+Run: java HelloWorld
+
+This will run the executable .class file through using the java interpreter.
+
+Any public class can be used by any package
+
+Non-public class can only be used within it's own package
+
+In C++, when you declare an array, storage for the array is allocated. In Java, when you declare an array, you are really only declaring a pointer to an array; storage for the array itself is not allocated until you use "new":
+           C++                              
+
+int A[10];  // A is an array of length 10	    
+A[0] = 5;   // set the 1st element of array A
+                                    
+
+          JAVA
+
+int [] A;          // A is a pointer to an array
+A = new int [10];  // now A points to an array of length 10
+A[0] = 5;          // set the 1st element of the array pointed to by A
+
+Create main function at the end after all other functions have been created.
+
+Commenting is the same syntax
+
+Need to allocate memory for arrays. Remember to use new if you want to allocate during runtime i.e. Size of array is unknown during compile time.
+

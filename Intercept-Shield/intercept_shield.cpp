@@ -3,7 +3,8 @@
 
 int main() {
 
-	//run();
+	run();
+	/*
 	time_t rawtime;
   	struct tm * timeinfo;
 	time ( &rawtime );
@@ -11,6 +12,7 @@ int main() {
   	timeinfo = localtime ( &rawtime );
   	printf ( "The current date/time is: %s", asctime (timeinfo) );
   	run();
+  	*/
 
 	return 0;
 }
