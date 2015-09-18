@@ -78,24 +78,33 @@ public class Deck {
 		}
 	}
 
+	// Optimized shuffle method using just 2 nodes and in place re arranging
 	public void shuffleUsingMapping(int cut) {
 
 		for (int i = 0; i < cut; i++) {
 			Node source = new Node(i, this.cardDeck.get(i));
 			while ((source.getCard()).getFlag() == false) {
+				System.out.println("Iteration: " + i);
+				// Adjusting flags for source and card deck
+				// Ensure not checking flags for destination but just source
 				source.setFlag(true);
+				this.cardDeck.get(source.getIndex()).adjustFlag(true);
 				Node destination;
 				if (source.getIndex() < cut) {
-					if ((source.getIndex()+1)*2 <= 52) {
+					if (source.getIndex()*2 <= 52) {
 						destination = new Node((source.getIndex())*2, this.cardDeck.get((source.getIndex())*2));
-						this.cardDeck.add((source.getIndex())*2, source.getCard());
+						System.out.println("Inserting at index: " + destination.getIndex());
+						this.cardDeck.remove(destination.getIndex());
+						this.cardDeck.add(destination.getIndex(), source.getCard());
 					} else {
 						destination = new Node(52-cut+source.getIndex(), this.cardDeck.get(52-cut+source.getIndex()));
-						this.cardDeck.add(52-cut+source.getIndex(), source.getCard());
+						this.cardDeck.remove(destination.getIndex());
+						this.cardDeck.add(destination.getIndex(), source.getCard());
 					}
 				} else {
 					destination = new Node(((source.getIndex()-cut)*2)+1, this.cardDeck.get(((source.getIndex()-cut)*2)+1));
-					this.cardDeck.add(((source.getIndex()-cut)*2)+1, source.getCard());
+					this.cardDeck.remove(destination.getIndex());
+					this.cardDeck.add(destination.getIndex(), source.getCard());
 				}
 				source = new Node(destination.getIndex(), destination.getCard());
 			}

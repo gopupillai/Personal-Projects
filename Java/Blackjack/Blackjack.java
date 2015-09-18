@@ -5,12 +5,14 @@ public class Blackjack {
 	public static void main(String[] args) {
 
 		Deck deck = new Deck();
+		/*
 		for (int i = 0; i < 52; i++) {
 			Card topCard = deck.getTopCard();
 			outputCard(topCard);
 		}
+		*/
 		deck = new Deck();
-		deck.shuffleUsingMapping(2);
+		deck.shuffleUsingMapping(3);
 		for (int i = 0; i < 52; i++) {
 			Card topCard = deck.getTopCard();
 			outputCard(topCard);
