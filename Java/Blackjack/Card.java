@@ -27,15 +27,48 @@ public class Card
 			return Suit.SPADES;
 		}
 
+		public static char valueFromInteger(int x) {
+			if (x < 0 || x > 12) {
+				System.out.println("Incorrect index for card value inputted");
+				return '0';
+			} else {
+				if (x <= 7) {
+					x = x + 50;
+					return (char)x;
+				} else if (x == 8) {
+					return 'T';
+				} else if (x == 9) {
+					return 'J';
+				} else if (x == 10) {
+					return 'Q';
+				} else if (x == 11) {
+					return 'K';
+				} else {
+					return 'A';
+				}
+			}
+		}
+
 		// Private Data
 		private char value;
 		private Suit suit;
-		private boolean errorFlag;
+		private boolean flag;
 
 		// Constructor with 2 arguments
 		public Card(char value, Suit suit)
 		{
 			set(value, suit);
+		}
+
+		public Card(char value, Suit suit, boolean flag) {
+			if (isValid(value, suit)) {
+				this.flag = flag;
+				this.value = value;
+				this.suit = suit;
+			} else {
+				System.out.println("Error with setting card values");
+				this.flag = true;
+			}
 		}
 
 		// Constructor with no arguments
@@ -49,16 +82,20 @@ public class Card
 		{
 			if (isValid(value, suit))
 			{
-				this.errorFlag = false;
+				this.flag = false;
 				this.value = value;
 				this.suit = suit;
 				return true;
 			}
 			else
 			{
-				this.errorFlag = true;
+				this.flag = true;
 				return false;
 			}
+		}
+
+		public void adjustFlag(boolean flag) {
+			this.flag = flag;
 		}
 
 		// Accessors
@@ -72,9 +109,9 @@ public class Card
 			return suit;
 		}
 
-		public boolean getErrorFlag()
+		public boolean getFlag()
 		{
-			return errorFlag;
+			return flag;
 		}
 
 		// Ensures validity of card
